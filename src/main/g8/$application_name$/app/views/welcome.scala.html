@@ -1,7 +1,7 @@
 @(message: String, style: String = "Scala", playhome: String ="http://www.playframework.org")
 
 @play.api.Play.maybeApplication.filterNot(_.mode != play.api.Mode.Dev).map { _ =>
-    
+
 <link rel="stylesheet" media="screen" href="/assets/stylesheats/main.css">
 
 <section id="top">
@@ -260,13 +260,12 @@ db.pass=secret</code></pre>
 
             <h2>Need more help?</h2>
 
-            
             <p>
                 The <a href="http://groups.google.com/group/play-framework">Play Google Group</a> is where Play users come to seek help, announce projects, and discuss issues and new features. If you don’t have a Google account, you can still join the mailing list by sending an e-mail to 
                 <strong>play-framework+subscribe@@googlegroups.com</strong>.
             </p>
 
-        </article>    
+        </article>
         <aside>
             <h3>Browse</h3>
             <ul>
@@ -285,9 +284,9 @@ db.pass=secret</code></pre>
 
 
 </div>
-    
+
 }.getOrElse {
-    
+
 <h1>@message</h1>
-    
+
 }
