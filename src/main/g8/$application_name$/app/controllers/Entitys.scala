@@ -3,7 +3,7 @@ package main.g8.$application_name$.app.controllers
 import play.api.mvc._
 import play.api.data._
 import play.api.data.Forms._
-import models._
+import models.Entity
 import models.Entitys._
 import com.yammer.metrics.Metrics
 import com.yammer.metrics.scala.Timer

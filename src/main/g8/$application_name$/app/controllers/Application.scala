@@ -1,7 +1,5 @@
 package controllers
 
-import _root_.play.api.Routes
-import controllers.routes
 import play.api._
 import play.api.mvc._
 

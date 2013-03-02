@@ -1,6 +1,6 @@
-import _root_.java.net.URL
-import _root_.sbt.Keys._
-import _root_.sbt.Resolver
+import sbt._
+import play.Project._
+import sbt.Keys._
 
 object ApplicationBuild extends Build {
 
@@ -21,7 +21,7 @@ object ApplicationBuild extends Build {
     //    , "com.yammer.metrics" % "metrics-scala_2.10" % "2.2.0"
     //    , "com.yammer.metrics" % "metrics-graphite" % "2.2.0"
     // Webjars
-    , "org.webjars" % "webjars-play" % "2.1-0"
+    , "org.webjars" % "webjars-play" % "2.1.0"
     //    , "org.webjars" % "requirejs" % "2.1.1"
     , "org.webjars" % "bootstrap" % "$bootstrap_version$"
     , "org.webjars" % "momentjs" % "1.7.2"
@@ -34,9 +34,8 @@ object ApplicationBuild extends Build {
 
   )
 
-  val main = PlayProject(appName, appVersion, appDependencies, mainLang = SCALA).settings(
+  val main = play.Project(appName, appVersion, appDependencies).settings(
     // Add your own project settings here
     resolvers += Resolver.url("sbt-plugin-snapshots", new URL("http://repo.scala-sbt.org/scalasbt/sbt-plugin-snapshots/"))(Resolver.ivyStylePatterns)
-  ).dependsOn(RootProject(uri("git://github.com/freekh/play-slick.git")))
-
+  ).dependsOn(RootProject( uri("git://github.com/freekh/play-slick.git") ))
 }
