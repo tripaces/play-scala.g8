@@ -10,8 +10,6 @@ object ApplicationBuild extends Build {
   val appDependencies = Seq(
     // Add your project dependencies here,
     jdbc
-    // Play slick
-    , "com.typesafe" % "play-slick_2.10" % "0.2.7-SNAPSHOT"
     , "mysql" % "mysql-connector-java" % "5.1.23"
     // enables logging
     , "org.slf4j" % "slf4j-api" % "1.7.2"
