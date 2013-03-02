@@ -1,10 +1,10 @@
-@(message: String, currentPage: Page[Entity], currentOrderBy: Int)(implicit flash: play.api.mvc.Flash)
+@(message: String, currentPage: Page[$entity;format="word"$], currentOrderBy: Int)(implicit flash: play.api.mvc.Flash)
 
 @****************************************
 * Helper generating navigation links    *
 ****************************************@
 @link(newPage: Int, newOrderBy: Option[Int] = None) = @{
-routes.Entitys.list(newPage
+routes.$entity;format="word"$s.list(newPage
 , newOrderBy.map { orderBy =>
 if(orderBy == scala.math.abs(currentOrderBy)) -currentOrderBy else orderBy
 }.getOrElse(currentOrderBy))
@@ -23,7 +23,7 @@ if(orderBy == scala.math.abs(currentOrderBy)) -currentOrderBy else orderBy
 
 @main(message) {
 
-@Option(currentPage.items).filterNot(_.isEmpty).map { entitys =>
+@Option(currentPage.items).filterNot(_.isEmpty).map { $entity;format="lower"$s =>
 
 <table class="table table-striped table-bordered table-hover">
     <thead>
@@ -34,10 +34,10 @@ if(orderBy == scala.math.abs(currentOrderBy)) -currentOrderBy else orderBy
     </thead>
     <tbody>
 
-    @entitys.map {  entity =>
+    @$entity;format="lower"$s.map {  $entity;format="lower"$ =>
             <tr>
-                <td><a href="@routes.Entitys.view(entity.id.getOrElse(0))">@entity.name</a></td>
-                <td>@Html(entity.description.getOrElse("<em>-</em>") )</td>
+                <td><a href="@routes.$entity;format="word"$s.view($entity;format="lower"$.id.getOrElse(0))">@$entity;format="lower"$.name</a></td>
+                <td>@Html($entity;format="lower"$.description.getOrElse("<em>-</em>") )</td>
             </tr>
     }
 
@@ -56,7 +56,7 @@ if(orderBy == scala.math.abs(currentOrderBy)) -currentOrderBy else orderBy
         </li>
         }
         <li class="current">
-            <a>Displaying @(currentPage.offset + 1) to @(currentPage.offset + entitys.size) of @currentPage.total</a>
+            <a>Displaying @(currentPage.offset + 1) to @(currentPage.offset + $entity;format="lower"$s.size) of @currentPage.total</a>
         </li>
         @currentPage.next.map { page =>
         <li class="next">
