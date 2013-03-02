@@ -1,4 +1,4 @@
-package main.g8.$application_name$.app.models
+package models
 
 import play.api.db.DB
 
@@ -29,8 +29,6 @@ object Entitys extends Table[Entity]("entitys") {
   def * = id.? ~ name ~ description.? <>(Entity, Entity.unapply _)
 
   def autoInc = id.? ~ name ~ description.? <>(Entity, Entity.unapply _) returning id
-
-  def stories = StoryEntitys.filter(_.idEntity === id).flatMap(_.story)
 
   implicit val dateTime: TypeMapper[DateTime]
   = MappedTypeMapper.base[DateTime, Timestamp](dt => new
