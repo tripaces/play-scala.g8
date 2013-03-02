@@ -1,4 +1,4 @@
-package main.g8.$application_name$.app.models
+package models
 
 // Use the implicit threadLocalSession
 

@@ -1,4 +1,4 @@
-package main.g8.$application_name$.app.controllers
+package controllers
 
 import play.api.mvc._
 import play.api.data._
@@ -26,9 +26,11 @@ object Entitys extends Controller {
       (Entity.apply)(Entity.unapply)
   )
 
+  val Home = Redirect(routes.Entitys.list(0, 0))
+
   // -- Actions
   def index = Action {
-    Redirect(routes.Entitys.list(0, 0))
+    Home
   }
 
   def list(page: Int, orderBy: Int) = Action {
@@ -81,7 +83,7 @@ object Entitys extends Controller {
    */
   def create = Action {
     implicit request =>
-      Ok(views.html.entitys.create("New Entity", entityForm, models.Stories.options))
+      Ok(views.html.entitys.create("New Entity", entityForm))
   }
 
   /**

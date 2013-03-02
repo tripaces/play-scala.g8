@@ -1,5 +1,6 @@
-package main.g8.$application_name$.app.controllers
+package controllers
 
+import play.api.mvc._
 
 object FragmentAssets extends Controller {
 
