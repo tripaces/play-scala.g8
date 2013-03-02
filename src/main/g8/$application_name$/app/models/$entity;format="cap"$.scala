@@ -1,19 +1,16 @@
 package models
 
-import play.api.db.DB
-
 import play.api.Play.current
 
-import scala.slick.driver.MySQLDriver.simple._
-import scala.slick.session.Database
-import play.api.libs.json._
-import play.api.libs.functional.syntax._
+import play.api.db.slick.Config.driver.simple._
+import play.api.db.slick.DB
+
 import java.sql.Timestamp
 import org.joda.time.DateTime
 
-// Use the implicit threadLocalSession
+import play.api.libs.json._
+import play.api.libs.functional.syntax._
 
-import scala.slick.session.Database.threadLocalSession
 
 case class $entity;format="cap"$(id: Option[Long], name: String, description: Option[String])
 
@@ -37,18 +34,16 @@ object $entity;format="cap"$s extends Table[$entity;format="cap"$]("$entity;form
   val byId = createFinderBy(_.id)
   val byName = createFinderBy(_.name)
 
-  lazy val database = Database.forDataSource(DB.getDataSource())
-
   lazy val pageSize = 10
 
   def findAll: Seq[$entity;format="cap"$] = {
-    database.withSession {
+    DB.withSession{ implicit session =>
       (for (c <- $entity;format="cap"$s.sortBy(_.name)) yield c).list
     }
   }
 
   def count: Int = {
-    database.withSession {
+    DB.withSession{ implicit session =>
       (for (c <- $entity;format="cap"$s) yield c.id).list.size
     }
   }
@@ -56,7 +51,7 @@ object $entity;format="cap"$s extends Table[$entity;format="cap"$]("$entity;form
   def findPage(page: Int = 0, orderField: Int): Page[$entity;format="cap"$] = {
 
     val offset = pageSize * page
-    database.withSession {
+    DB.withSession{ implicit session =>
       val $entity;format="lower"$s = (
         for {c <- $entity;format="cap"$s
           .sortBy($entity;format="lower"$ => orderField match {
@@ -72,22 +67,30 @@ object $entity;format="cap"$s extends Table[$entity;format="cap"$]("$entity;form
     }
   }
 
-  def findById(id: Long): Option[$entity;format="cap"$] = database withSession {
-    $entity;format="cap"$s.byId(id).firstOption
+  def findById(id: Long): Option[$entity;format="cap"$] = {
+    DB.withSession{ implicit session =>
+      $entity;format="cap"$s.byId(id).firstOption
+    }
   }
 
-  def insert($entity;format="lower"$: $entity;format="cap"$): Long = database withSession {
-    //val c = $entity;format="cap"$(None, $entity;format="lower"$.name, $entity;format="lower"$.description, new DateTime())
-    $entity;format="cap"$s.autoInc.insert($entity;format="lower"$)
+  def insert($entity;format="lower"$: $entity;format="cap"$): Long = {
+    DB.withSession{ implicit session =>
+      $entity;format="cap"$s.autoInc.insert($entity;format="lower"$)
+    }
   }
 
-  def update(id:Long,$entity;format="lower"$: $entity;format="cap"$) = database withSession {
-    val $entity;format="lower"$2update = $entity;format="lower"$.copy(Some(id))
-    $entity;format="cap"$s.where(_.id === id).update($entity;format="lower"$2update)
+  def update(id:Long,$entity;format="lower"$: $entity;format="cap"$) = {
+    DB.withSession{ implicit session => {
+        val $entity;format="lower"$2update = $entity;format="lower"$.copy(Some(id))
+        $entity;format="cap"$s.where(_.id === id).update($entity;format="lower"$2update)
+      }
+    }
   }
 
-  def delete($entity;format="lower"$Id: Long) = database withSession {
-    $entity;format="cap"$s.where(_.id === $entity;format="lower"$Id).delete
+  def delete($entity;format="lower"$Id: Long) = {
+    DB.withSession{ implicit session =>
+      $entity;format="cap"$s.where(_.id === $entity;format="lower"$Id).delete
+    }
   }
 
 
