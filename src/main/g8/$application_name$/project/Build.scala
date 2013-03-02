@@ -23,7 +23,7 @@ object ApplicationBuild extends Build {
     // Webjars
     , "org.webjars" % "webjars-play" % "2.1-0"
     //    , "org.webjars" % "requirejs" % "2.1.1"
-    , "org.webjars" % "bootstrap" % "$bootsrap_version$"
+    , "org.webjars" % "bootstrap" % "$bootstrap_version$"
     , "org.webjars" % "momentjs" % "1.7.2"
     , "org.webjars" % "angularjs" % "1.1.3"
     , "org.webjars" % "angular-ui" % "0.3.2-1"
