@@ -1,6 +1,6 @@
 'use strict';
 
-$application_name$.filter('stepStatusRow', function () {
+my_app.filter('stepStatusRow', function () {
     var STATUS = {
         "OK" : "success",
         "KO" : "error",

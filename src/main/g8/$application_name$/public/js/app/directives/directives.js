@@ -9,7 +9,7 @@
 /*global angular:true */
 'use strict';
 
-angular.module('$application_name$.directives', [])
+angular.module('my_app.directives', [])
     .directive('appVersion', ['version', function(version) {
         return function(scope, elm, attrs) {
             elm.text(version);

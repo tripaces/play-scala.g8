@@ -9,7 +9,7 @@
 /*global angular:true */
 'use strict';
 
-angular.module('$application_name$.filters', [])
+angular.module('my_app.filters', [])
     .filter('interpolate', ['version', function(version) {
         return function(text) {
             return String(text).replace(/\%VERSION\%/mg, version);

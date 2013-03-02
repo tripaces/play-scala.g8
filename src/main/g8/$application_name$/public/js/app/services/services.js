@@ -9,4 +9,4 @@
 /*global angular:true */
 'use strict';
 
-angular.module('$application_name$.services', []);
+angular.module('my_app.services', []);

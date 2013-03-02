@@ -1,12 +1,12 @@
 @(title: String, scripts: Html = Html(""))(content: Html)
 
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7 ng-app:$application_name$" lang="en" id="ng-app"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8 ng-app:$application_name$" lang="en" id="ng-app"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" ng-app="$application_name$"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" ng-app="$application_name$"> <!--<![endif]-->
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7 ng-app:my_app" lang="en" id="ng-app"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8 ng-app:my_app" lang="en" id="ng-app"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" ng-app="my_app"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" ng-app="my_app"> <!--<![endif]-->
 
-<html>
+<html lang="en" ng-app="my_app">
     <head>
         <title>@title</title>
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">

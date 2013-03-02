@@ -2,7 +2,7 @@
 /*global angular:true */
 'use strict';
 
-angular.module('$application_name$.controllers', [])
+angular.module('my_app.controllers', [])
     .controller('MyController', function ($scope) {
 
 

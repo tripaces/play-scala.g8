@@ -1,13 +1,13 @@
 'use strict';
 
-$application_name$.filter('fromNow', function () {
+my_app.filter('fromNow', function () {
     return function (dateString) {
         return moment(new Date(dateString)).fromNow();
     };
 });
 
 
-$application_name$.filter('fromNowTimestamp', function () {
+my_app.filter('fromNowTimestamp', function () {
     return function (timestamp) {
         var day = moment(timestamp);
 //            console.log(day);
