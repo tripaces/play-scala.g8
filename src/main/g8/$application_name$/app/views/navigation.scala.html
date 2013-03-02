@@ -1,0 +1,9 @@
+@()
+<div id="navigation" class="well sidebar-nav">
+    <ul class="nav nav-list">
+        <li class="nav-header">Menus</li>
+        <li><a href="@routes.Application.index">Home</a></li>
+        <li class="divider"></li>
+        <li><a href="@routes.$entity;format="cap"$s.list(0)">$entity;format="cap"$s</a></li>
+    </ul>
+</div>

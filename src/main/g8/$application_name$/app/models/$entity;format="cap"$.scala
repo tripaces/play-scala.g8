@@ -15,7 +15,7 @@ import play.api.libs.functional.syntax._
 case class $entity;format="cap"$(id: Option[Long], name: String, description: Option[String])
 
 // define tables
-object $entity;format="cap"$s extends Table[$entity;format="cap"$]("$entity;format="lower"$s") {
+object $entity;format="cap"$s extends Table[$entity;format="cap"$]("$entity;format="lower"$") {
 
   def id = column[Long]("id_$entity;format="lower"$", O.PrimaryKey, O.AutoInc)
 

@@ -38,6 +38,33 @@
         @scripts
     </head>
     <body>
-        @content
+        <div class="page-header">
+            <div class="container">
+                <h1>
+                    <a href='@routes.Application.index()'>
+                        Play 2.0 sample app &mdash; $application_name$
+                    </a>
+                </h1>
+            </div>
+        </div>
+
+        <section id="main">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span2">
+                        <!--Sidebar content-->
+                        @navigation()
+                    </div>
+
+                    <div class="span8">
+                        <!--Body content-->
+                        <fieldset>
+                            <legend>@title</legend>
+                            @content
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </section>
     </body>
 </html>

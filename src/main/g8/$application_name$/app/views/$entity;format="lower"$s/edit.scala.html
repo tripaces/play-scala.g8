@@ -21,10 +21,10 @@
 @inputText($entity;format="lower"$Form("description"), '_label -> "Description")
 
 <div class="form-actions">
-    <input type="submit" value="Save this $entity;format="lower"$" class="btn btn-primary"> or
-    <a href="@routes.$entity;format="cap"$s.view(id)" class="btn">View</a> or
-    <a href="@routes.$entity;format="cap"$s.list()" class="btn">Cancel</a>
-    <a href="@routes.$entity;format="cap"$s.create()" class="btn">New</a>
+    <input type="submit" value="Save this $entity;format="lower"$" class="btn btn-primary">
+    <a href="@routes.$entity;format="cap"$s.view(id)" class="btn btn-info">View</a>
+    <a href="@routes.$entity;format="cap"$s.list()" class="btn btn-inverse">Cancel</a>
+    <a href="@routes.$entity;format="cap"$s.create()" class="btn btn-success">New</a>
 </div>
 
 }
