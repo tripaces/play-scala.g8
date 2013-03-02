@@ -5,5 +5,21 @@
 # Home page
 GET     /                           controllers.Application.index
 
+GET     /webjars/*file              controllers.WebJarAssets.at(file)
+
+# Fragments routing
+GET     /fragments/*file            controllers.FragmentAssets.at(file)
+
+# Javascript routing
+GET /assets/javascripts/routes controllers.Application.javascriptRoutes
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+# Entitys
+GET     /entitys/                     controllers.Entitys.list(p:Int ?= 0,s:Int ?= 1)
+GET     /entitys/:id/edit             controllers.Entitys.edit(id : Long)
+POST    /entitys/:id/edit             controllers.Entitys.update(id : Long)
+GET     /entitys/new                  controllers.Entitys.create
+POST    /entitys/new                  controllers.Entitys.save
+GET     /entitys/:id                  controllers.Entitys.view(id : Long)

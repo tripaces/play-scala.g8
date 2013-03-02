@@ -1,0 +1,23 @@
+@(message: String, entity: Entity)(implicit flash: play.api.mvc.Flash)
+@import helper.twitterBootstrap._
+
+@main(message) {
+<div class="header">
+
+    <dl class="dl-horizontal">
+        <dt>Name</dt>
+        <dd>@entity.name</dd>
+        <dt>Code</dt>
+        <dd>@entity.description</dd>
+    </dl>
+
+</div>
+
+<div class="form-actions">
+    @**<input type="submit" value="Edit this entity" class="btn btn-primary"> or**@
+    <a href="@routes.Entitys.edit(entity.id.getOrElse(0))" class="btn btn-primary">Edit</a>or
+    <a href="@routes.Entitys.list()" class="btn">Cancel</a>
+    <a href="@routes.Entitys.create()" class="btn">New</a>
+</div>
+
+}

@@ -1,5 +1,7 @@
 package controllers
 
+import _root_.play.api.Routes
+import controllers.routes
 import play.api._
 import play.api.mvc._
 
@@ -7,6 +9,17 @@ object Application extends Controller {
   
   def index = Action {
     Ok(views.html.index("Your new application is ready."))
+  }
+
+  // -- Javascript routing
+  def javascriptRoutes = Action {
+    implicit request =>
+      import routes.javascript._
+      Ok(
+        Routes.javascriptRouter("jsRoutes")(
+          //          Comments.view,
+        )
+      ).as("text/javascript")
   }
   
 }

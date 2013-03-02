@@ -1,0 +1,26 @@
+@(message: String, entityForm: Form[Entity])(implicit flash: play.api.mvc.Flash)
+
+@import helper._
+
+@implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.f) }
+
+@main(message) {
+
+@flash.get("success").map { message =>
+<div class="alert warning">
+    <strong>Done!</strong> @message
+</div>
+}
+
+@form(routes.Entitys.save(), 'class -> "form-horizontal") {
+
+@inputText(entityForm("name"), '_label -> "Nom")
+@inputText(entityForm("description"), '_label -> "Description")
+
+<div class="form-actions">
+    <input type="submit" value="Save this entity" class="btn btn-primary"> or
+    <a href="@routes.Entitys.list()" class="btn">Cancel</a>
+</div>
+
+}
+}
