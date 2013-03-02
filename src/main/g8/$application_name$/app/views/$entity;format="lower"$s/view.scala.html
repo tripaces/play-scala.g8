@@ -1,4 +1,4 @@
-@(message: String, $entity;format="lower"$: $entity;format="word"$)(implicit flash: play.api.mvc.Flash)
+@(message: String, $entity;format="lower"$: $entity;format="cap"$)(implicit flash: play.api.mvc.Flash)
 @import helper.twitterBootstrap._
 
 @main(message) {
@@ -15,9 +15,9 @@
 
 <div class="form-actions">
     @**<input type="submit" value="Edit this $entity;format="lower"$" class="btn btn-primary"> or**@
-    <a href="@routes.$entity;format="word"$s.edit($entity;format="lower"$.id.getOrElse(0))" class="btn btn-primary">Edit</a>or
-    <a href="@routes.$entity;format="word"$s.list()" class="btn">Cancel</a>
-    <a href="@routes.$entity;format="word"$s.create()" class="btn">New</a>
+    <a href="@routes.$entity;format="cap"$s.edit($entity;format="lower"$.id.getOrElse(0))" class="btn btn-primary">Edit</a>or
+    <a href="@routes.$entity;format="cap"$s.list()" class="btn">Cancel</a>
+    <a href="@routes.$entity;format="cap"$s.create()" class="btn">New</a>
 </div>
 
 }

@@ -1,4 +1,4 @@
-@(message: String, id: Long, $entity;format="lower"$Form: Form[$entity;format="word"$])(implicit flash: play.api.mvc.Flash)
+@(message: String, id: Long, $entity;format="lower"$Form: Form[$entity;format="cap"$])(implicit flash: play.api.mvc.Flash)
 
 @import helper._
 
@@ -15,16 +15,16 @@
         </div>
     }
 
-@form(routes.$entity;format="word"$s.update(id), 'class -> "form-horizontal") {
+@form(routes.$entity;format="cap"$s.update(id), 'class -> "form-horizontal") {
 
 @inputText($entity;format="lower"$Form("name"), '_label -> "Nom")
 @inputText($entity;format="lower"$Form("description"), '_label -> "Description")
 
 <div class="form-actions">
     <input type="submit" value="Save this $entity;format="lower"$" class="btn btn-primary"> or
-    <a href="@routes.$entity;format="word"$s.view(id)" class="btn">View</a> or
-    <a href="@routes.$entity;format="word"$s.list()" class="btn">Cancel</a>
-    <a href="@routes.$entity;format="word"$s.create()" class="btn">New</a>
+    <a href="@routes.$entity;format="cap"$s.view(id)" class="btn">View</a> or
+    <a href="@routes.$entity;format="cap"$s.list()" class="btn">Cancel</a>
+    <a href="@routes.$entity;format="cap"$s.create()" class="btn">New</a>
 </div>
 
 }

@@ -16,10 +16,10 @@ GET /assets/javascripts/routes controllers.Application.javascriptRoutes
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
-# $entity;format="word"$s
-GET     /$entity;format="lower"$s/                     controllers.$entity;format="word"$s.list(p:Int ?= 0,s:Int ?= 1)
-GET     /$entity;format="lower"$s/:id/edit             controllers.$entity;format="word"$s.edit(id : Long)
-POST    /$entity;format="lower"$s/:id/edit             controllers.$entity;format="word"$s.update(id : Long)
-GET     /$entity;format="lower"$s/new                  controllers.$entity;format="word"$s.create
-POST    /$entity;format="lower"$s/new                  controllers.$entity;format="word"$s.save
-GET     /$entity;format="lower"$s/:id                  controllers.$entity;format="word"$s.view(id : Long)
+# $entity;format="cap"$s
+GET     /$entity;format="lower"$s/                     controllers.$entity;format="cap"$s.list(p:Int ?= 0,s:Int ?= 1)
+GET     /$entity;format="lower"$s/:id/edit             controllers.$entity;format="cap"$s.edit(id : Long)
+POST    /$entity;format="lower"$s/:id/edit             controllers.$entity;format="cap"$s.update(id : Long)
+GET     /$entity;format="lower"$s/new                  controllers.$entity;format="cap"$s.create
+POST    /$entity;format="lower"$s/new                  controllers.$entity;format="cap"$s.save
+GET     /$entity;format="lower"$s/:id                  controllers.$entity;format="cap"$s.view(id : Long)

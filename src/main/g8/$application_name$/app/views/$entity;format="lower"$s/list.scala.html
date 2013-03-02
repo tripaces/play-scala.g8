@@ -1,10 +1,10 @@
-@(message: String, currentPage: Page[$entity;format="word"$], currentOrderBy: Int)(implicit flash: play.api.mvc.Flash)
+@(message: String, currentPage: Page[$entity;format="cap"$], currentOrderBy: Int)(implicit flash: play.api.mvc.Flash)
 
 @****************************************
 * Helper generating navigation links    *
 ****************************************@
 @link(newPage: Int, newOrderBy: Option[Int] = None) = @{
-routes.$entity;format="word"$s.list(newPage
+routes.$entity;format="cap"$s.list(newPage
 , newOrderBy.map { orderBy =>
 if(orderBy == scala.math.abs(currentOrderBy)) -currentOrderBy else orderBy
 }.getOrElse(currentOrderBy))
@@ -36,7 +36,7 @@ if(orderBy == scala.math.abs(currentOrderBy)) -currentOrderBy else orderBy
 
     @$entity;format="lower"$s.map {  $entity;format="lower"$ =>
             <tr>
-                <td><a href="@routes.$entity;format="word"$s.view($entity;format="lower"$.id.getOrElse(0))">@$entity;format="lower"$.name</a></td>
+                <td><a href="@routes.$entity;format="cap"$s.view($entity;format="lower"$.id.getOrElse(0))">@$entity;format="lower"$.name</a></td>
                 <td>@Html($entity;format="lower"$.description.getOrElse("<em>-</em>") )</td>
             </tr>
     }
