@@ -19,14 +19,14 @@ object ApplicationBuild extends Build {
     //    , "com.yammer.metrics" % "metrics-scala_2.10" % "2.2.0"
     //    , "com.yammer.metrics" % "metrics-graphite" % "2.2.0"
     // Webjars
-    , "org.webjars" % "webjars-play" % "2.1.0"
+    , "org.webjars" % "webjars-play" % "2.1.0-1"
     //    , "org.webjars" % "requirejs" % "2.1.1"
     , "org.webjars" % "bootstrap" % "2.3.1"
     , "org.webjars" % "momentjs" % "1.7.2"
     , "org.webjars" % "angularjs" % "1.1.3"
-    , "org.webjars" % "angular-ui" % "0.3.2-1"
-    , "org.webjars" % "angular-strap" % "0.6.6"
-    , "org.webjars" % "font-awesome" % "3.0.0"
+    , "org.webjars" % "angular-ui" % "0.4.0"
+    , "org.webjars" % "angular-strap" % "0.7.1"
+    , "org.webjars" % "font-awesome" % "3.0.2"
     , "org.webjars" % "jquery-ui" % "1.9.2"
     , "org.webjars" % "tinymce-jquery" % "3.4.9"
 
